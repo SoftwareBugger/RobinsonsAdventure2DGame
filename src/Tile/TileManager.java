@@ -21,7 +21,7 @@ public class TileManager {
     this.tiles = new Tile[9];
     this.mapTileNumbers = new int[this.gamePanel.WORLDROW][this.gamePanel.WORLDCOLUMN];
     getTileImage();
-    loadMap("/Users/lukelvhan/eclipse-workspace/My2DGame/src/maps/WorldMap.txt");
+    loadMap("/Users/lukelvhan/eclipse-workspace/My2DGame/res/maps/WorldMap.txt");
   }
   
   /**
@@ -114,7 +114,6 @@ public class TileManager {
         for (int j = 0; j < mapTileNumbers[0].length; j++) {
           if (sc.hasNext()) {
             mapTileNumbers[i][j] = sc.nextInt();
-            System.out.println(mapTileNumbers[i][j]);
           }
         }
       }
