@@ -36,7 +36,7 @@ public class Entity {
   public int spriteCounter = 0;
   public int spriteNum = 1;
   
-  // solid area
+  // solid area using a rectangle class
   public Rectangle solidArea;
   public boolean collisionOn = false;
 

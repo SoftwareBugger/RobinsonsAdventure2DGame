@@ -48,6 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     this.setPreferredSize(new Dimension(SCREENWIDTH, SCREENHEIGHT));
     this.setBackground(Color.black); 
     this.setDoubleBuffered(true);// increase quality of animation
+    // instantiate different objects required
     this.keyHandler = new KeyHandler();
     this.player = new Player(this, keyHandler);
     this.manager = new TileManager(this);

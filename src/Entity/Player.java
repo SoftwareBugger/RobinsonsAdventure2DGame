@@ -24,9 +24,9 @@ public class Player extends Entity {
     this.keyHandler = keyHandler;
     this.ScreenX = gamePanel.SCREENWIDTH/2;
     this.ScreenY = gamePanel.SCREENHEIGHT/2;
-    // x, y, width, height
+    // x, y, width, height can also be set separately by accessing datafields
     // the solid area of the player, usually smaller than the tile
-    this.solidArea = new Rectangle(8, 16, 32, 32);
+    this.solidArea = new Rectangle(16, 16, 16, 16);
     this.setDefaultValues();
     this.getUserImage();
   }
@@ -88,21 +88,28 @@ public class Player extends Entity {
 //          !gamePanel.manager.tiles[gamePanel.manager.mapTileNumbers[bottomRightY/gamePanel.TILESIZE][bottomRightX/gamePanel.TILESIZE]].collision)
 //        this.worldX += this.speed;
 //    }
-    // move the character
+    
+    // move the character determine the direction first
+    
+    // if collisionOn is false, the player can move
+    // but the direction has to be able to change even in case of collision
     if (this.keyHandler.upPressed == true) {
       this.direction = "up";
-      this.worldY -= this.speed;
+      if (collisionOn == false) this.worldY -= this.speed;
     } else if (this.keyHandler.downPressed == true) {
       this.direction = "down";
-      this.worldY += this.speed;
+      if (collisionOn == false) this.worldY += this.speed;
     } else if (this.keyHandler.leftPressed == true) {
       this.direction = "left";
-      this.worldX -= this.speed;
+      if (collisionOn == false) this.worldX -= this.speed;
     } else if (this.keyHandler.rightPressed == true) {
       this.direction = "right";
-      this.worldX += this.speed;
+      if (collisionOn == false) this.worldX += this.speed;
     }
     
+    
+    
+    // reset collision to default value, which is false
     collisionOn = false;
     // pass the player in the checker
     gamePanel.collisionChecker.checkTile(this);

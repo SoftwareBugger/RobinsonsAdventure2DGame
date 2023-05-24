@@ -19,7 +19,7 @@ public class TileManager {
   public TileManager(GamePanel gamePanel) {
     this.gamePanel = gamePanel;
     this.tiles = new Tile[9];
-    this.mapTileNumbers = new int[this.gamePanel.WORLDCOLUMN][this.gamePanel.WORLDROW];
+    this.mapTileNumbers = new int[this.gamePanel.WORLDROW][this.gamePanel.WORLDCOLUMN];
     getTileImage();
     loadMap("/Users/lukelvhan/eclipse-workspace/My2DGame/src/maps/WorldMap.txt");
   }
@@ -76,6 +76,7 @@ public class TileManager {
       
       tiles[2] = new Tile();
       tiles[2].image = ImageIO.read(new File("/Users/lukelvhan/eclipse-workspace/My2DGame/res/tiles/Water.png"));
+      tiles[2].collision = true;
       
       tiles[3] = new Tile();
       tiles[3].image = ImageIO.read(new File("/Users/lukelvhan/eclipse-workspace/My2DGame/res/tiles/dirt.png"));
